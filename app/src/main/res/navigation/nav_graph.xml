@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landingPageFragment">
+
+    <fragment
+        android:id="@+id/landingPageFragment"
+        android:name="com.tjprojects.navigationdemo.landingpage.LandingPageFragment"
+        android:label="landing_page_fragment"
+        tools:layout="@layout/landing_page_fragment">
+        <action
+            android:id="@+id/action_landingPageFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_favoriteProductsFragment"
+            app:destination="@id/favoriteProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.tjprojects.navigationdemo.productList.ProductListFragment"
+        android:label="product_list_fragment"
+        tools:layout="@layout/product_list_fragment">
+        <action
+
+            android:id="@+id/action_productListFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+        <argument
+            android:name="productModel"
+            app:argType="com.tjprojects.navigationdemo.models.ProductObject" />
+    </fragment>
+    <fragment
+        android:id="@+id/productInfoFragment"
+        android:name="com.tjprojects.navigationdemo.productInfo.ProductInfoFragment"
+        android:label="product_info_fragment"
+        tools:layout="@layout/product_info_fragment">
+        <action
+            android:id="@+id/action_productInfoFragment_to_landingPageFragment"
+            app:destination="@id/landingPageFragment"
+            app:popUpTo="@+id/landingPageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteProductsFragment"
+        android:name="com.tjprojects.navigationdemo.favorites.FavoriteProductsFragment"
+        android:label="favorite_products_fragment"
+        tools:layout="@layout/favorite_products_fragment">
+        <action
+            android:id="@+id/action_favoriteProductsFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+    </fragment>
+</navigation>
